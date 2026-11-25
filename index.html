@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Segredo da Floresta Sombria</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #071b16, #183d2b);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    background: #ffffff15;
+    padding: 30px;
+    border-radius: 18px;
+}
+
+h1 {
+    color: #a8e6a1;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background: #78a878;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4d8055;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌲 O Segredo da Floresta Sombria</h1>
+
+<p id="historia">
+Você é um explorador que encontrou um mapa antigo
+indicando um tesouro escondido em uma floresta misteriosa.
+Ao entrar na floresta, percebe que existem sons estranhos
+e caminhos desconhecidos.
+
+De repente, você encontra dois caminhos.
+Qual deles vai escolher?
+</p>
+
+<div id="opcoes">
+<button onclick="escolher('esquerda')">
+🌳 Entrar no caminho da esquerda
+</button>
+
+<button onclick="escolher('direita')">
+🌙 Seguir pelo caminho da direita
+</button>
+</div>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function escolher(opcao) {
+
+let historia = document.getElementById("historia");
+let opcoes = document.getElementById("opcoes");
+let resultado = document.getElementById("resultado");
+
+resultado.innerHTML = "";
+
+if (opcao === "esquerda") {
+
+historia.innerHTML =
+"Você encontra uma cabana abandonada. Dentro dela existe uma chave dourada e um bilhete misterioso. O bilhete diz: 'A chave abre aquilo que está escondido'. O que você faz?";
+
+opcoes.innerHTML = `
+<button onclick="escolher('chave')">🔑 Pegar a chave</button>
+<button onclick="escolher('sair')">🚪 Ignorar a cabana e continuar</button>
+`;
+
+}
+
+else if (opcao === "direita") {
+
+historia.innerHTML =
+"Você encontra um rio brilhante e uma pequena ponte de madeira. Do outro lado, existe uma luz misteriosa. Como deseja continuar?";
+
+opcoes.innerHTML = `
+<button onclick="escolher('ponte')">🌉 Atravessar a ponte</button>
+<button onclick="escolher('rio')">💧 Seguir pela margem do rio</button>
+`;
+
+}
+
+else if (opcao === "chave") {
+
+historia.innerHTML =
+"Você encontra uma porta escondida atrás da cabana. A chave dourada abre a porta e revela um baú antigo cheio de tesouros!";
+
+resultado.innerHTML = "🏆 FINAL 1: Você encontrou o tesouro perdido!";
+
+opcoes.innerHTML = `
+<button onclick="reiniciar()">🔄 Jogar novamente</button>
+`;
+
+}
+
+else if (opcao === "sair") {
+
+historia.innerHTML =
+"Você continua caminhando, mas acaba se perdendo na floresta. Depois de muito procurar, encontra a saída e consegue voltar para casa.";
+
+resultado.innerHTML = "🌲 FINAL 2: Uma aventura sem tesouro, mas com uma grande descoberta!";
+
+opcoes.innerHTML = `
+<button onclick="reiniciar()">🔄 Jogar novamente</button>
+`;
+
+}
+
+else if (opcao === "ponte") {
+
+historia.innerHTML =
+"Você atravessa a ponte e encontra um guardião mágico. Ele pergunta se você deseja receber um presente ou descobrir o segredo da floresta.";
+
+opcoes.innerHTML = `
+<button onclick="escolher('presente')">🎁 Aceitar o presente</button>
+<button onclick="escolher('segredo')">🔮 Descobrir o segredo</button>
+`;
+
+}
+
+else if (opcao === "rio") {
+
+historia.innerHTML =
+"Seguindo o rio, você encontra uma pequena cachoeira. Atrás dela existe uma passagem secreta que leva para fora da floresta.";
+
+resultado.innerHTML = "✨ FINAL 3: Você descobriu uma passagem secreta e escapou da floresta!";
+
+opcoes.innerHTML = `
+<button onclick="reiniciar()">🔄 Jogar novamente</button>
+`;
+
+}
+
+else if (opcao === "presente") {
+
+historia.innerHTML =
+"O guardião entrega uma pedra mágica que ilumina todo o caminho. Você consegue encontrar o caminho de volta para casa.";
+
+resultado.innerHTML = "💎 FINAL 4: Você ganhou um presente mágico!";
+
+opcoes.innerHTML = `
+<button onclick="reiniciar()">🔄 Jogar novamente</button>
+`;
+
+}
+
+else if (opcao === "segredo") {
+
+historia.innerHTML =
+"O guardião revela que a floresta esconde um portal mágico. Você atravessa o portal e encontra um mundo encantado cheio de maravilhas.";
+
+resultado.innerHTML = "🌟 FINAL 5: Você descobriu o maior segredo da floresta!";
+
+opcoes.innerHTML = `
+<button onclick="reiniciar()">🔄 Jogar novamente</button>
+`;
+
+}
+
+}
+
+function reiniciar() {
+location.reload();
+}
+
+</script>
+
+</body>
+</html>
